@@ -1,4 +1,5 @@
 ﻿using Hololive.Game.Grpahics;
+using Hololive.Game.Screens.Menu;
 using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
@@ -8,6 +9,7 @@ using osu.Framework.Screens;
 using osu.Framework.Threading;
 using osu.Framework.Utils;
 using osuTK;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -89,7 +91,10 @@ namespace Hololive.Game.Screens.Loading
         [BackgroundDependencyLoader]
         private void load(HololiveGame game)
         {
-            game.StartLoading(() => { while (true) ; }, 15000);
+            game.StartLoading(() =>
+            {
+                LoadComponentAsync(new MenuScreen(), loaded => this.Push(loaded));
+            }, 20000);
 
             current = generateNext();
             AddInternal(current);
@@ -143,6 +148,12 @@ namespace Hololive.Game.Screens.Loading
 
             lastCharacter = next.Value;
             return next;
+        }
+
+        public override void OnSuspending(IScreen next)
+        {
+            base.OnSuspending(next);
+            this.FadeOut(500);
         }
 
         protected override void Dispose(bool isDisposing)

@@ -37,6 +37,11 @@ namespace Hololive.Game.Audio
             Schedule(() => track?.Start());
         }
 
+        public void Stop()
+        {
+            Schedule(() => track?.Stop());
+        }
+
         protected override void Update()
         {
             base.Update();

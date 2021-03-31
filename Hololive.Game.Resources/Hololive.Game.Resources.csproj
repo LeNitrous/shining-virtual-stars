@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Text/**/*" />
+    <EmbeddedResource Include="Fonts/**/*" />
+    <EmbeddedResource Include="Tracks/**/*" />
+    <EmbeddedResource Include="Videos/**/*" />
+    <EmbeddedResource Include="Samples/**/*" />
+    <EmbeddedResource Include="Textures/**/*" />
+  </ItemGroup>
+ 
+</Project>

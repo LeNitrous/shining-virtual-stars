@@ -105,18 +105,15 @@ namespace Hololive.Game.Screens.Title
             }
         }
 
-        protected override void LoadComplete()
+        public void StartLoop()
         {
-            base.LoadComplete();
-
-            Schedule(() => Refresh(false));
             scrollSchedule = Scheduler.AddDelayed(() => Refresh(), 5000, true);
         }
 
         protected override void Dispose(bool isDisposing)
         {
             base.Dispose(isDisposing);
-            scrollSchedule.Cancel();
+            scrollSchedule?.Cancel();
         }
 
         private CharacterSprite getNextCharacter()

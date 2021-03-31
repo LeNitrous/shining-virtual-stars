@@ -2,6 +2,7 @@
 using Hololive.Game.Screens.Disclaimer;
 using osu.Framework.Allocation;
 using osu.Framework.Graphics;
+using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.Input.Events;
@@ -16,7 +17,11 @@ namespace Hololive.Game.Screens.Title
 
         private TapSound tap;
 
+        private Container logoContainer;
+
         private TapToStartFlyout flyout;
+
+        private TitleCharacters characters;
 
         [Resolved]
         private HololiveGame game { get; set; }
@@ -27,20 +32,32 @@ namespace Hololive.Game.Screens.Title
             InternalChildren = new Drawable[]
             {
                 tap = new TapSound(),
-                new TitleCharacters(),
-                new Sprite
+                characters = new TitleCharacters
                 {
-                    Y = 150,
-                    Scale = new Vector2(1.5f),
-                    Texture = textures.Get("logo"),
-                    Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
+                    Y = 100,
+                    Alpha = 0,
                 },
-                flyout = new TapToStartFlyout
+                logoContainer = new Container
                 {
-                    Y = -100,
-                    Anchor = Anchor.BottomCentre,
-                    Origin = Anchor.BottomCentre,
+                    Alpha = 0,
+                    RelativeSizeAxes = Axes.Both,
+                    Children = new Drawable[]
+                    {
+                        new Sprite
+                        {
+                            Y = 150,
+                            Scale = new Vector2(1.5f),
+                            Texture = textures.Get("logo"),
+                            Anchor = Anchor.Centre,
+                            Origin = Anchor.Centre,
+                        },
+                        flyout = new TapToStartFlyout
+                        {
+                            Y = -100,
+                            Anchor = Anchor.BottomCentre,
+                            Origin = Anchor.BottomCentre,
+                        },
+                    }
                 },
                 new SpriteText
                 {
@@ -48,9 +65,12 @@ namespace Hololive.Game.Screens.Title
                     Anchor = Anchor.BottomLeft,
                     Origin = Anchor.BottomLeft,
                     Margin = new MarginPadding(10),
-                    Text = "ver. 0.72.7b (D) This is not a real game."
+                    Text = "ver. 0.72.7b"
                 }
             };
+
+            characters.Refresh(false);
+            characters.StartLoop();
         }
 
         protected override bool OnMouseDown(MouseDownEvent e)
@@ -64,6 +84,20 @@ namespace Hololive.Game.Screens.Title
             }
 
             return base.OnMouseDown(e);
+        }
+
+        public override void OnEntering(IScreen last)
+        {
+            base.OnEntering(last);
+
+            characters
+                .MoveToY(0, 500, Easing.OutBack)
+                .FadeIn(200);
+
+            logoContainer
+                .Delay(500)
+                .Then()
+                .FadeIn(500);
         }
 
         public override void OnSuspending(IScreen next)

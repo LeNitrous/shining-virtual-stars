@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hololive.Game", "Hololive.Game\Hololive.Game.csproj", "{BF084BB2-26DE-4652-B138-17D51E8177CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hololive.Game", "Hololive.Game\Hololive.Game.csproj", "{BF084BB2-26DE-4652-B138-17D51E8177CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hololive.Game.Resources", "Hololive.Game.Resources\Hololive.Game.Resources.csproj", "{CC55E0FB-26C1-4590-AE17-ABDD54B7B013}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hololive.Game.Desktop", "Hololive.Game.Desktop\Hololive.Game.Desktop.csproj", "{C2AD607A-0E9F-49D7-8074-05B617DD937B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{BF084BB2-26DE-4652-B138-17D51E8177CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF084BB2-26DE-4652-B138-17D51E8177CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF084BB2-26DE-4652-B138-17D51E8177CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC55E0FB-26C1-4590-AE17-ABDD54B7B013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC55E0FB-26C1-4590-AE17-ABDD54B7B013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC55E0FB-26C1-4590-AE17-ABDD54B7B013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC55E0FB-26C1-4590-AE17-ABDD54B7B013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2AD607A-0E9F-49D7-8074-05B617DD937B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2AD607A-0E9F-49D7-8074-05B617DD937B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2AD607A-0E9F-49D7-8074-05B617DD937B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2AD607A-0E9F-49D7-8074-05B617DD937B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

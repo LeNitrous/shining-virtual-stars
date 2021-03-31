@@ -1,5 +1,5 @@
 ﻿using osu.Framework.IO.Stores;
-using System.Text;
+using System.IO;
 
 namespace Hololive.Game.IO
 {
@@ -11,11 +11,12 @@ namespace Hololive.Game.IO
         {
             this.store = store;
             AddExtension(@"md");
-            AddExtension(@"txt");
         }
 
-        public string Get(Encoding encoding, string name) => encoding.GetString(store.Get(name));
-
-        public override string Get(string name) => Get(Encoding.UTF8, name);
+        public override string Get(string name)
+        {
+            using var reader = new StreamReader(store.GetStream(name));
+            return reader.ReadToEnd();
+        }
     }
 }
