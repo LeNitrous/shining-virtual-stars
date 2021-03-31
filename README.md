@@ -10,7 +10,7 @@ This is a joke game made in 48 hours to take jabs at the community asking for a 
 - .NET 5.0 SDK installed.
 
 ### Running locally
-- `dotnet run --project  Hololive.Game`
+- `dotnet run --project  Hololive.Game.Desktop`
 
 Although the game can be run on Android and iOS, I have only prepared a Desktop project for this game. Meaning this can also be run on Linux and MacOS.
 
