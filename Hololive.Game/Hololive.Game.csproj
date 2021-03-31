@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ppy.osu.Framework" Version="2021.329.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources/**/*" />
+    <EmbeddedResource Include="app.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Resources\Text\flavor-random-1.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\disclaimer-text.md" />
+    <None Remove="Resources\Text\flavor-random-1.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Screens\Intro\" />
+  </ItemGroup>
+
+</Project>
